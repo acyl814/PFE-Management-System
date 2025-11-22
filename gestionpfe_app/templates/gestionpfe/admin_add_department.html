@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>add department</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/add-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    <a href="{% url 'update-admin' e.id  %}">
+                        <div class="name">
+                            <p class="bold"> {{e.get_name}} </p>
+                            
+                            <i class="bx bxs-cog"></i>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Departments</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="title">
+                <H2>Add department</H2>
+            </div>
+            <form method="POST" >
+             {% csrf_token %} 
+             {% if userForm.errors or userForm.non_field_erors %}
+             <div class="errorbox1">
+               <div class="error1">
+                 {% for field in userForm %}
+                   {{field.errors}}
+                 {% endfor %}
+                 {{userForm.non_field_errors}}
+               </div>
+             </div>
+             {% endif %}
+           
+          
+           
+          
+            <div class="informations">
+              
+              
+                <div class="content">
+                    {{ depForm.name }}
+                </div>
+                <div class="content">
+                    {{ depForm.doyen }}
+                </div>
+             
+              
+                
+                <div class="buttons">
+                    <button type="submit" class="buttonupdate">submit</button>
+                    <a href="javascript:history.back()">Go Back</a>
+                </div>
+            </div>
+          
+         </form >
+        
+    </div>
+</body>
+</html>

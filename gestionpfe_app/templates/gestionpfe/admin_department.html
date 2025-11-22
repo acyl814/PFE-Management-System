@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Department</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    <a href="{% url 'update-admin' e.id  %}">
+                        <div class="name">
+                            <p class="bold"> {{e.get_name}} </p>
+                            
+                            <i class="bx bxs-cog"></i>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Departments</p>
+              
+            </div>
+
+            <div class="totale">
+                <p>Total Departments :{{departments}}</p>
+                
+                
+                
+            </div>
+            
+
+        </div>
+        
+        <form method="get" action="" id="subjectFilterForm">
+            <div class="add_filtre">
+                <div class="searchbox">
+                    <i class="bx bx-search-alt-2"></i>
+                    <input class="search" type="text" name="search_term" placeholder="Search..." value="{{ request.GET.search_term }}">
+                </div>
+                
+            </div> 
+        </form>
+            
+            <script type="text/javascript">
+                document.getElementById('subjectFilterForm').onchange = function() {
+                    this.submit();
+                };
+            </script>
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Department List</h2>
+                <a href="{% url 'add-department'  %}" class="add">Add new</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Department Name</th>
+                        <th>Doyen Name</th>
+                        <th>Teacher Count</th>
+                        <th>Speciality Count</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for department in page_obj %}
+                    <tr>
+                        <td>{{ department.name }}</td>
+                        <td>{{ department.doyen.get_name }}</td>
+                        <td>{{ department.teacher_count }}</td>
+                        <td>{{ department.speciality_count }}</td>
+                        
+                        
+                        <td class="op">
+                            <a href="{% url 'update-department' department.id %}" class="edit"><i class="bx bx-edit"></i></a> | 
+                            <a href="{% url 'delete-department' department.id %}" class="delete" onclick="return confirm('Are you sure?');"><i class="bx bxs-trash"></i></a>
+                        </td>
+                    </tr>
+                    
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="noadmins">No departments found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&search_term={{ search_term }}" class="first">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&search_term={{ search_term }}" class="previous">Previous</a>
+            {% endif %}
+            
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_term={{ search_term }}" class="next">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&search_term={{ search_term }}" class="last">Last</a>
+            {% endif %}
+        </div>
+    </div>
+   
+</body>
+</html>

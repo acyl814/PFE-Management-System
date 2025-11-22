@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>subject details</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/add-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    {% if is_teacher%}
+                        <a href="{% url 'teacher-update-teacher' e.id  %}">
+                    {% elif is_company%}
+                        <a href="{% url 'company-update-company' e.id  %}">
+                    {%endif%}
+                            <div class="name">
+                                <p class="bold"> {{e.get_name}} </p>
+                                
+                                <i class="bx bxs-cog"></i>
+                            </div>
+                        </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Subjects</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="title">
+                <H2>view subject details</H2>
+            </div>
+            <form method="POST" >
+             {% csrf_token %} 
+             {% if userForm.errors or userForm.non_field_erors %}
+             <div class="errorbox1">
+               <div class="error1">
+                 {% for field in userForm %}
+                   {{field.errors}}
+                 {% endfor %}
+                 {{userForm.non_field_errors}}
+               </div>
+             </div>
+             {% endif %}
+           
+          
+           
+          
+            <div class="informations">
+                
+              
+                <div class="content">
+                    {{ form.type }}
+                </div>
+                
+                <div class="content">
+                    {{ form.title }}
+                </div>
+                {%if is_company%}
+                    <div class="content">
+                        {{ form.teacher }}
+                    </div>
+                {%endif%}
+                <div class="content">
+                    {{ form.level }}
+                </div>
+                <div class="content">
+                    {{ form.speciality}}
+                </div>
+                <div class="content">
+                    {{ form.description }}
+                </div>
+                {%if rejection_reason%}
+                    <div class="content">
+                        {{ form.rejection_reason }}
+                    </div>
+                {%endif%}
+                <div class="content">
+                    {{ form.keyword }}
+                </div>
+
+             
+              
+                
+                <div class="buttons">
+                    
+                    <a href="javascript:history.back()">Go Back</a>
+                </div>
+            </div>
+          
+         </form >
+        
+    </div>
+</body>
+</html>

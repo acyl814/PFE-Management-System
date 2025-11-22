@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Pair Informations</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                   
+                        <a href="{% url 'student-update-student' e.id  %}">
+                    
+                            <div class="name">
+                                <p class="bold"> {{e.get_name}} </p>
+                                
+                                <i class="bx bxs-cog"></i>
+                            </div>
+                        </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Pair information</p>
+                
+                
+
+            </div>
+
+            
+            
+
+        </div>
+        
+       
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Pair Informations</h2>
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                
+                        <th>Level</th>
+                        <th>Speciality</th> 
+                        
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>{{ binome_info.fname }}</td>
+                        <td>{{ binome_info.lname }}</td> 
+                        <td>{{ binome_info.level }}</td>
+                        <td>{{ binome_info.speciality }}</td> 
+
+                        
+                        
+                        
+                       
+                        
+                    
+                            
+                        
+                    </tr>
+                    
+                    
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+        
+   
+</body>
+</html>

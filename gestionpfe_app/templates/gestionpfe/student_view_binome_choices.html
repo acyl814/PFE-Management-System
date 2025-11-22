@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Choices</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                   
+                        <a href="{% url 'student-update-student' e.id  %}">
+                    
+                            <div class="name">
+                                <p class="bold"> {{e.get_name}} </p>
+                                
+                                <i class="bx bxs-cog"></i>
+                            </div>
+                        </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Choices</p>
+              
+            </div>
+
+            
+
+        </div>
+        
+        
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Choices Subjects List</h2>
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Title</th>
+                        
+                        <th>Teacher Assigned</th>
+                        
+                        
+                        <th>Description</th>
+                        
+                        
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in choices %}
+                    <tr>
+                        <td>{{ c.subject.type }}</td>
+                        <td>{{ c.subject.title }}</td> 
+                        
+                        <td>{{ c.subject.teacher.get_name }}</td> 
+                          
+                        
+                        <td>{{ c.subject.description|truncatewords:3 }}</td>
+                        
+                        
+                        
+                       
+                        
+                        
+                            <td class="op">
+                                <a href="{% url 'student_validate_choices' c.id  %}" class="edit"><i class="bx bx-check"></i></a>|
+                                <a href="{% url 'remove_subject_from_choices' c.id  %}" class="edit"><i class="bx bx-x"></i></a>
+                            </td>
+                        
+                    </tr>
+                    
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="noadmins">No Choices found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&search_term={{ search_term }}" class="first">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&search_term={{ search_term }}" class="previous">Previous</a>
+            {% endif %}
+            
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_term={{ search_term }}" class="next">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&search_term={{ search_term }}" class="last">Last</a>
+            {% endif %}
+        </div>
+    </div>
+   
+</body>
+</html>

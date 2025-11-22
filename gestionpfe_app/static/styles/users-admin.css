@@ -1,0 +1,350 @@
+* {
+    font-family: Outfit, 'Source Sans Pro';
+}
+.admin{
+    left: 8%;
+    position: relative;
+    background-color: #fffbe3;
+    height: 100VH;
+    transition: all 0.5s ease;
+    width: calc(100% - 8%);
+    z-index: 1;
+    
+}
+.navbar{
+    background-color: #0d1426;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 5rem;
+    min-width: fit-content;
+    width: auto;
+    
+    
+}
+.user1{
+    margin-left: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+}
+.user1 a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.name{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.titlesite{
+    display: flex;
+    align-items: center;
+}
+.titlesite img{
+   margin-left: 33%;
+    width: 5%;
+}
+.titlesite span{
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: wrap;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin-left: 0.5rem;
+}
+.topbar{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    margin-left: 12%;
+    column-gap: 27rem;
+    align-items: center;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10%;
+    font-weight: 700;
+    font-size: 1.2rem;
+    align-items: center;
+}
+.links p{
+    background-color:#0d1426;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.5rem 0.8rem rgb(77, 77, 77);
+}
+.links a{
+    text-decoration: none;
+    color: rgb(77, 77, 77);
+    padding: 0.5rem;
+}
+.links i{
+    min-width: 50px;
+    height: 50px;
+    
+    line-height: 50px;
+}
+.links a:hover{
+    background-color:rgb(228, 228, 228);
+    border-radius: 0.5rem;
+    box-shadow: 0rem 0.5rem 0.8rem rgb(77, 77, 77);
+}
+.totale{
+    display: flex;
+    flex-direction: column;
+    color: rgb(77, 77, 77);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.add_filtre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-left: 8rem;
+    
+}
+.searchbox{
+    padding: 0.5rem 20rem 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 15rem;
+    background-color: rgb(201, 200, 200);
+    color: rgb(0, 0, 0);
+}
+.search{
+    
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none; 
+    color: rgb(0, 0, 0);
+}
+.searchbox:hover{
+    box-shadow: 0rem 0.5rem 0.8rem rgb(77, 77, 77);
+}
+.select{
+    margin-left: 3rem;
+    border: none;
+    background-color:rgb(201, 200, 200);
+    color:rgb(77, 77, 77);
+    outline: none;
+    border-radius: 0.5rem;
+    width: 4rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    
+}
+.select:hover{
+    box-shadow: 0rem 0.5rem 0.8rem rgb(77, 77, 77);
+}
+
+.admin-list{
+    display: flex;
+    flex-direction: column;
+    margin-left: 8rem;
+    margin-top: 2rem;
+    width: 85%;
+    row-gap: 1rem;
+}
+.listetitle{
+    display: flex;
+    align-items: center;
+    margin-left: 25rem;
+}
+.listetitle h2{
+    color:rgb(77, 77, 77);
+}
+.add{
+    margin-left: 2rem;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    text-decoration: none;
+    background-color:rgb(255, 227, 167);
+    color:rgb(80, 66, 29);
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+
+}
+.add:hover{
+    box-shadow: 0rem 0.5rem 0.8rem rgb(77, 77, 77);
+    color:#ffffff;
+    background-color:#0d1426;
+    padding: 1rem;
+    font-size: 1rem;
+}
+.admin-list table  {
+    box-shadow: 1.9rem 1rem 3.08rem rgba(11, 88, 204, 0.5);
+    background-color: #e7e7e7;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    
+    
+}
+
+.admin-list thead{
+    color:rgb(77, 77, 77);
+    
+}
+.admin-list thead th {
+    text-align: left;
+}
+.admin-list thead th:nth-child(5) {
+    
+    text-align: center;
+}
+
+
+.admin-list tbody{
+    color: rgb(80, 66, 29);
+    
+}
+.admin-list table tbody tr td {
+    height: 2.5rem;
+    
+    
+}
+.admin-list tbody tr td:nth-child(5) {
+    text-align: center;
+}
+.noadmins{
+    text-align: center;
+    font-weight: bold;
+    
+}
+.active{
+    text-align: center;
+}
+
+
+
+.approve a{
+    text-decoration: none;
+    color:#FFFF;
+}
+
+.approve{
+    width: 100%;
+    border-radius: 3rem;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color:#0d1426;
+    text-align: center;
+}
+
+.approve:hover{
+    box-shadow: 0rem 0.5rem 0.8rem rgb(80, 66, 29);
+}
+
+.delete{
+    color: rgb(80, 66, 29);
+}
+.delete:hover {
+	background-color:#df1414;
+    color: #FFFF;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+.edit{
+    color: rgb(80, 66, 29);
+    border: none; 
+    outline: none; 
+    background: transparent; 
+}
+.edit:hover {
+	background-color:#2d8026;
+    color: #FFFF; 
+    border-radius: 1rem;
+    padding: 0.5rem;
+    
+}
+.buttons a{
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color:rgb(77, 77, 77);
+    text-align: center;
+    width: 15%;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.pagination{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    margin-left: 11rem;
+    column-gap: 1rem;
+}
+.first{
+    text-decoration: none;
+    color: rgb(77, 77, 77);
+}
+.last{
+    text-decoration: none;
+    color: rgb(77, 77, 77);
+}
+.next{
+    text-decoration: none;
+    color: rgb(80, 66, 29);
+    font-weight: 800;
+    
+}
+.previous{
+    text-decoration: none;
+    color: rgb(80, 66, 29);
+    font-weight: 800;
+}
+.sidebar.active ~ .admin{
+    left: 20%;
+    width: calc(100% - 20%);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+    overflow: hidden;
+   
+}
+.sidebar.active ~ .admin .admin-list{
+    margin-left: 1rem;
+    width: 98%;
+    
+   
+}
+.sidebar.active ~ .admin .navbar {
+    display: none;
+}
+.notification {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-in-out;
+    z-index: 1000;
+  }
+  .notification.show {
+    top: 20px;
+  }

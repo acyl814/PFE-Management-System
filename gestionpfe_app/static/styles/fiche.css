@@ -1,0 +1,166 @@
+* {
+    font-family: Outfit, 'Source Sans Pro';
+}
+.fiche{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    
+    
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+}
+.entete{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+    align-items: center;
+}
+.entete img{
+    width: 5rem;
+    height: 5rem;
+}
+.line{
+    width: 100%;
+    height: 0.13rem;
+    background-color: black;
+    
+}
+.titre{
+    align-self: center;
+}
+.projet{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-self: flex-start;
+    margin-left: 10%;
+    white-space: wrap;
+    width: 80%;
+    
+    
+
+}
+.projet .info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    white-space: wrap;
+    margin-left: 5%;
+    font-size: 1.1rem;
+    
+}
+.fisrt{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+   
+}
+.first span{
+    width: 50%;
+    white-space: wrap;
+
+}
+
+.sec{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+}
+.sec span{
+    width: 50%;
+    white-space: wrap;
+}
+.student{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 10%;
+    width: 80%;
+    
+}
+.students{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+.student1{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    white-space: wrap;
+}
+.student2{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    white-space: wrap;
+}
+.encadrant{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 10%;
+    width: 80%;
+    
+}
+.encadrant .info{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    white-space: wrap;
+}
+.jury{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 10%;
+    width: 80%;
+   
+}
+.jurys{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+}
+.jury1{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    white-space: wrap;
+
+}
+.jury2{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    white-space: wrap;
+
+}
+.note{
+    flex-direction: row;
+    display: flex;
+    column-gap: 1rem;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+.date{
+    flex-direction: row;
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}

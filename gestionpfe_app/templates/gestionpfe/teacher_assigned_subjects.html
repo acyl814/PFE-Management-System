@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Assigned Subjects</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    <a href="{% url 'teacher-update-teacher' e.id  %}">
+                        <div class="name">
+                            <p class="bold"> {{e.get_name}} </p>
+                            
+                            <i class="bx bxs-cog"></i>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Assigned Subjects</p>
+              
+            </div>
+            
+
+        </div>
+        
+        <form method="get" action="" id="subjectFilterForm">
+            <div class="add_filtre">
+                <div class="searchbox">
+                    <i class="bx bx-search-alt-2"></i>
+                    <input class="search" type="text" name="search_term" placeholder="Search..." value="{{ request.GET.search_term }}">
+                </div>
+                <select class="select" name="filter" onchange="this.form.submit()">
+                    <option value="" {% if filter == '' %}selected{% endif %}>-</option>
+                    <option value=" " {% if filter == 'All' %}selected{% endif %}>All</option>
+                    <option value="3rd year bachelor's degree" {% if filter == 'L3' %}selected{% endif %}>L3</option>
+                    <option value="2nd year master's degree" {% if filter == 'M2' %}selected{% endif %}>M2</option>
+                    
+                    
+                </select>
+                
+                
+            </div> 
+        </form>
+            
+            <script type="text/javascript">
+                document.getElementById('subjectFilterForm').onchange = function() {
+                    this.submit();
+                };
+            </script>
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Assigned Subjects</h2>
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Title</th>
+                        <th>Level</th>
+                        <th>Student 1</th>
+                        <th>Student 2</th>
+                        <th>Allowed To Graduate</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject in page_obj %}
+                    <tr>
+                        
+                        <td>{{ subject.subject.title }}</td>    
+                        <td>{{ subject.subject.level }}</td>
+                       
+                        <td>{{ subject.student.get_name}}</td>
+                        <td>
+                            {% if subject.student.binome %}
+                                {{ subject.student.binome.get_name }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if subject.teacheraprove == ' ' %}
+        
+                                    <a href="{% url 'teacher-approve-choice' subject.id  %}" class="edit" onclick="return confirm('Are you sure?');"><i class="bx bx-check"></i></a>
+                                    |
+                                    <a href="{% url 'teacher-delete-choice' subject.id  %}" class="delete" onclick="return confirm('Are you sure?');"><i class="bx bx-x"></i></a>
+                            {% endif %}
+
+                        </td>
+                        {%if subject.subject.type == 'External'%}
+    
+                            <td class="op">
+                            <a href="{% url 'teacher-summary' subject.id  %}" class="edit"><i class="bx bx-news"></i></a>
+                            </td>
+                        {%endif%}
+                        
+                    </tr>
+                    
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="noadmins">No subjects found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&search_term={{ search_term }}" class="first">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&search_term={{ search_term }}" class="previous">Previous</a>
+            {% endif %}
+            
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_term={{ search_term }}" class="next">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&search_term={{ search_term }}" class="last">Last</a>
+            {% endif %}
+        </div>
+    </div>
+   
+</body>
+</html>

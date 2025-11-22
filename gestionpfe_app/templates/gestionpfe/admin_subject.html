@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Subjects</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    {%if is_admin%}
+                        <a href="{% url 'update-admin' e.id  %}">
+                    {%endif%}
+                    {%if is_teacher%}
+                    <a href="{% url 'teacher-update-teacher' e.id  %}">
+                    {%endif%}
+                            <div class="name">
+                                <p class="bold"> {{e.get_name}} </p>
+                                
+                                <i class="bx bxs-cog"></i>
+                            </div>
+                        </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Subjects</p>
+              
+            </div>
+            {%if is_admin%}
+                <div class="totale">
+                    <p>Total Subjects :{{total_subjects}}</p>
+                    <p>Pending Subjects :{{pending_subjects}}</p>
+                </div>
+            {%endif%}
+            
+
+        </div>
+        
+        <form method="get" action="" id="subjectFilterForm">
+            <div class="add_filtre">
+                <div class="searchbox">
+                    <i class="bx bx-search-alt-2"></i>
+                    <input class="search" type="text" name="search_term" placeholder="Search..." value="{{ request.GET.search_term }}">
+                </div>
+                <select class="select" name="filter" onchange="this.form.submit()">
+                    <option value="" {% if filter == '' %}selected{% endif %}>-</option>
+                    <option value=" " {% if filter == 'All' %}selected{% endif %}>All</option>
+                    <option value="3rd year bachelor's degree" {% if filter == 'L3' %}selected{% endif %}>L3</option>
+                    <option value="2nd year master's degree" {% if filter == 'M2' %}selected{% endif %}>M2</option>
+                    <option value="PENDING" {% if filter == 'Pending' %}selected{% endif %}>Pending</option>
+                    <option value="APPROVED" {% if filter == 'Approved' %}selected{% endif %}>Approved</option>
+                    <option value="REJECTED" {% if filter == 'Rejected' %}selected{% endif %}>Rejected</option>
+                    <option value="External" {% if filter == 'External' %}selected{% endif %}>External</option>
+                    <option value="Internal" {% if filter == 'Internal' %}selected{% endif %}>Internal</option>
+                </select>
+                
+                
+            </div> 
+        </form>
+            
+            <script type="text/javascript">
+                document.getElementById('subjectFilterForm').onchange = function() {
+                    this.submit();
+                };
+            </script>
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Subjects List</h2>
+                
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Title</th>
+                        <th>Level</th>
+                        <th>Description</th>
+                        <th>Assigned Teacher</th>
+                        <th>Status</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject in page_obj %}
+                    <tr>
+                        <td>{{ subject.type }}</td>
+                        <td>{{ subject.title }}</td>
+                        <td>{{ subject.level }}</td>
+                        <td>{{ subject.description|truncatewords:3 }}</td>
+                        <td>{{ subject.teacher.get_name }}</td>
+                        <td>{{ subject.status|lower }}</td>
+                       
+                        
+                        
+                            <td class="op">
+                                {%if is_teacher and subject.status == 'PENDING' %}
+                                    <a href="{% url 'approve-subject' subject.id %}" class="edit"><i class="bx bxs-check-circle"></i></a> | 
+                                    <a href="{% url 'reject-subject' subject.id %}" class="delete"><i class="bx bxs-x-circle"></i></a>|
+                                {%endif%}
+                                <a href="{% url 'view-subject' subject.id %}" class="edit"><i class="bx bx-clipboard"></i></a>
+                            </td>
+                        
+                    </tr>
+                    
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="noadmins">No subjects found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&search_term={{ search_term }}" class="first">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&search_term={{ search_term }}" class="previous">Previous</a>
+            {% endif %}
+            
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_term={{ search_term }}" class="next">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&search_term={{ search_term }}" class="last">Last</a>
+            {% endif %}
+        </div>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebarAdmin</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+    <link rel="stylesheet" href="{% static 'styles/sidebar.css'%}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies Project Management </span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <div class="user">
+            {%if is_admin%}
+                <img src="{% static 'images/adminlogo.png'%}" class="user-img">
+            {%elif is_teacher%}
+                <img src="{% static 'images/proflogo.png'%}" class="user-img">
+            {%elif is_company%}
+                <img src="{% static 'images/entlogo1.svg'%}" class="user-img">
+            {%elif is_company%}
+                <img src="{% static 'images/entlogo1.svg'%}" class="user-img">
+            {%elif is_student%}
+                <img src="{% static 'images/student.png'%}" class="user-img">
+            {%endif%}
+            <div>
+
+                {% for a in admin %}
+                <p class="bold"> {{a.get_name}} </p>
+                {% endfor %}
+                
+    
+            </div>
+            <i class="bx bxs-cog"></i>
+        </div>
+        {%if is_admin%}
+            <ul>
+                <li>
+                    <a href="/admin_dashboard">
+                        <i class="bx bxs-grid-alt"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+        
+                <li>
+                    <a href="/admin_users">
+                        <i class="bx bxs-user"></i>
+                        <span class="nav-item">Users</span>
+                    </a>
+                    <span class="tooltip">Users</span>
+                </li>
+
+                
+        
+                <li>
+                    <a href="/admin_department">
+                        <i class="bx bxs-school"></i>
+                        <span class="nav-item">Departments</span>
+                    </a>
+                    <span class="tooltip">Departments</span>
+                </li>
+        
+                <li>
+                    <a href="/admin_speciality">
+                        <i class="bx bx-atom"></i>
+                        <span class="nav-item">Specialitys</span>
+                    </a>
+                    <span class="tooltip">Specialitys</span>
+                </li>
+        
+                <li>
+                    <a href="/admin_subject">
+                        <i class="bx bx-file"></i>
+                        <span class="nav-item">Subjects</span>
+                    </a>
+                    <span class="tooltip">Subjects</span>
+                </li>
+
+                <li>
+                    <a href="/admin_choices">
+                        <i class="bx bx-spreadsheet"></i>
+                        <span class="nav-item">Choices</span>
+                    </a>
+                    <span class="tooltip">Choices</span>
+                </li>
+                <li>
+                    <a href="{% url 'view_defenses' %}">
+                        <i class="bx bx-calendar"></i>
+                        <span class="nav-item">Defenses</span>
+                    </a>
+                    <span class="tooltip">Defenses</span>
+                </li>
+        
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul>
+        {%elif is_teacher%}
+            <ul>
+                <li>
+                    <a href="{% url 'teacher_subject' %}">
+                        <i class="bx bx-file"></i>
+                        <span class="nav-item">Subjects</span>
+                    </a>
+                    <span class="tooltip">Subjects</span>
+                </li>
+                <li>
+                    <a href="/admin_subject">
+                        <i class="bx bx-add-to-queue"></i>
+                        <span class="nav-item">Subjects To Approve</span>
+                    </a>
+                    <span class="tooltip">Subjects To Approve</span>
+                </li>
+                <li>
+                    <a href="{% url 'teacher_assigned_subject' %}">
+                        <i class="bx bx-layer"></i>
+                        <span class="nav-item">Assigned Subjects</span>
+                    </a>
+                    <span class="tooltip">Assigned Subjects</span>
+                </li>
+                <li>
+                    
+                    <a href="{% url 'view_defenses' %}">
+                        <i class="bx bx-calendar"></i>
+                        <span class="nav-item">Defenses</span>
+                    </a>
+                    <span class="tooltip">Defenses</span>
+                </li>
+                <li>
+                    
+                    <a href="{% url 'teacher_update_keyword' %}">
+                        <i class="bx bx-key"></i>
+                        <span class="nav-item">Keywords</span>
+                    </a>
+                    <span class="tooltip">Keywords</span>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul> 
+        {%elif is_company%}
+            <ul>
+                <li>
+                    <a href="{% url 'teacher_subject' %}">
+                        <i class="bx bx-file"></i>
+                        <span class="nav-item">Subjects</span>
+                    </a>
+                    <span class="tooltip">Subjects</span>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul> 
+        {%elif is_student%}
+          
+            <ul>
+                {% if request.user.student.has_validated_choice %}
+                <li>
+                    <a href="{% url 'student_subject_details' %}">
+                        <i class="bx bx-task"></i>
+                        <span class="nav-item">Your Subject </span>
+                    </a>
+                    <span class="tooltip">Your Subject</span>
+                </li>
+                {%else%}
+                
+
+                
+                <li>
+                    <a href="{% url 'student_view_subject' %}">
+                        <i class="bx bx-file"></i>
+                        <span class="nav-item">Subjects</span>
+                    </a>
+                    <span class="tooltip">Subjects</span>
+                </li>
+                <li>
+                    <a href="{% url 'student_view_choices' %}">
+                        <i class="bx bx-cart-alt"></i>
+                        <span class="nav-item">Choices </span>
+                    </a>
+                    <span class="tooltip">Choices</span>
+                </li>
+                <li>
+                    <a href="{% url 'students_available' %}">
+                        <i class="bx bx-user-plus"></i>
+                        <span class="nav-item">Add Pair</span>
+                    </a>
+                    <span class="tooltip">Add Pair</span>
+                </li>
+                
+                
+                {%endif%}
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Logout</span>
+                    </a>
+                    <span class="tooltip">Logout</span>
+                </li>
+            </ul> 
+        {%endif%}
+    </div>
+      
+</body>
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function(){
+        sidebar.classList.toggle('active');
+    };
+
+</script>
+
+
+    
+</html>

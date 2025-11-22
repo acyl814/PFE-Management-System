@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>View Teachers</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/users-admin.css'%}"/>
+  
+  
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html'%}
+    <div class="admin">
+        <div class="navbar">
+            
+            <div class="user1">
+                
+                <p>Hello ,</p>
+                {% for e in admin %}
+                    <a href="{% url 'update-admin' e.id  %}">
+                        <div class="name">
+                            <p class="bold"> {{e.get_name}} </p>
+                            
+                            <i class="bx bxs-cog"></i>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{%static 'images/usthb.svg'%}" >
+                <span> End Of Studies 
+                    Project Management </span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Teachers</p>
+                <a href="/admin_users">
+                    Admins
+                </a>
+                <a href="/admin_student">
+                    Students
+                </a>
+                <a href="/admin_entreprise">
+                    Companies
+                </a>
+
+            </div>
+
+            <div class="totale">
+                <p>Total Teachers :{{teachers}}</p>
+                
+                
+                <p>Active : {{teachers_active}}</p>
+            </div>
+            
+
+        </div>
+        
+        <form method="get" action="" id="subjectFilterForm">
+            <div class="add_filtre">
+                <div class="searchbox">
+                    <i class="bx bx-search-alt-2"></i>
+                    <input class="search" type="text" name="search_term" placeholder="Search..." value="{{ request.GET.search_term }}">
+                </div>
+                <select class="select" name="teacher_status" onchange="this.form.submit()">
+                    <option value="">-</option>
+                    <option value="" {% if request.GET.admin_status == '' %}selected{% endif %}>All</option>
+                    <option value="True" {% if request.GET.admin_status == 'Active' %}selected{% endif %}>Active</option>
+                    <option value="False" {% if request.GET.admin_status == 'Inactive' %}selected{% endif %}>Inactive</option>
+                </select> 
+            </div> 
+        </form>
+            
+            <script type="text/javascript">
+                document.getElementById('subjectFilterForm').onchange = function() {
+                    this.submit();
+                };
+            </script>
+        
+        <div class="admin-list">
+            <div class="listetitle">
+                <h2>Teacher List</h2>
+                <a href="{% url 'add-teacher'  %}" class="add">Add new</a>
+            </div>
+            
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Belongs</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in page_obj %}
+                    <tr>
+                        <td>{{ teacher.user.username }}</td>
+                        <td>{{ teacher.user.first_name }}</td>
+                        <td>{{ teacher.user.last_name }}</td>
+                        <td>{{ teacher.belongs }}</td>
+                        <td>{{ teacher.user.email }}</td>
+                        <td>
+                            {% if teacher.status == False %}
+                                <div class="approve">
+                                    <a href="{% url 'approve-teacher' teacher.id  %}" >Inactive</a>
+                                </div>
+                            {%else%}
+                                <span class="active">Active</span>
+                            {%endif%}
+                        </td>
+                        <td class="op">
+                            <a href="{% url 'update-teacher' teacher.id %}" class="edit"><i class="bx bx-edit"></i></a> | 
+                            <a href="{% url 'delete-teacher' teacher.id %}" class="delete" onclick="return confirm('Are you sure?');"><i class="bx bxs-trash"></i></a>
+                        </td>
+                    </tr>
+                    
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="noadmins">No teachers found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&search_term={{ search_term }}" class="first">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}&search_term={{ search_term }}" class="previous">Previous</a>
+            {% endif %}
+            
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_term={{ search_term }}" class="next">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&search_term={{ search_term }}" class="last">Last</a>
+            {% endif %}
+        </div>
+ 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Choice Sheet</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+    <link rel="stylesheet" href="{% static 'styles/fiche.css'%}">
+</head>
+<body>
+    <div class="fiche">
+        <div class="top">
+            <div class="entete">
+                <img src="{%static 'images/usthb.svg'%}" alt="logo">
+                <H1>University of Science and Technology Houari Boumediene </H1>
+                    <img src="{%static 'images/usthb.svg'%}" alt="logo">
+                    
+
+            </div>
+            <div class="line"></div>
+            <div class="titre">
+                <h1>License Project Sheet </h1>
+            </div>
+
+        </div>
+        <div class="projet">
+            <div class="projet1"><h3>Project</h3></div>
+            
+            <div class="info">
+                <div class="fisrt">
+                    <span>Project Title :  {{subject_choice.subject.title}}</span>
+                    
+                    <span>Project Type :  {{subject_choice.subject.type}}</span>
+                    
+                </div>
+                <div class="sec">
+                    <span>Project Summary : <br>{{subject_choice.subject.description}}</span>
+                    
+                    <span>Keywords : <br> {{subject_choice.subject.keyword}}</span>
+                    
+                </div>
+                
+                
+            </div>
+            
+            
+        </div>
+        <div class="student">
+            <H3>Students</H3>
+            <div class="students">
+                <div class="student1">
+                    <span>Register : {{subject_choice.student.matricule}}</span>
+                    <span>First Name : {{subject_choice.student.user.first_name}}</span>
+                    <span>Last Name : {{subject_choice.student.user.last_name}}</span>
+                    <span>Email : {{subject_choice.student.user.email}}</span>
+                </div>
+                <div class="student2">
+                    <span>Register : {{subject_choice.student.binome.matricule}}</span>
+                    <span>First Name : {{subject_choice.student.binome.user.first_name}}</span>
+                    <span>Last Name : {{subject_choice.student.binome.user.last_name}}</span>
+                    <span>Email : {{subject_choice.student.binome.user.email}}</span>
+                </div>
+
+            </div>
+            
+        </div>
+        <div class="encadrant">
+            <h3>Supervisor</h3>
+            <div class="info">
+                <span>First Name : {{subject_choice.subject.teacher.user.first_name}}</span>
+                <span>Last Name : {{subject_choice.subject.teacher.user.last_name}}</span>
+                <span>Email : {{subject_choice.subject.teacher.user.email}}</span>
+            </div>
+
+        </div>
+        <div class="jury">
+            <h3>Juries</h3>
+            <div class="jurys">
+                {% for teacher in defense.teachers.all %}
+                <div class="jury{{ forloop.counter }}">
+                    <span>First Name: {{ teacher.user.first_name }}</span>
+                    <span>Last Name: {{ teacher.user.last_name }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+            
+        
+        <div class="date">
+            <H3>The ate of the defense : </H3>
+            <span> {{defense.scheduled_time}} </span>
+        </div>
+        <div class="note">
+            <H3>Your grade : </H3>
+            {% if result != 0%}
+                <span> {{result}} </span>
+            {%endif%}
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

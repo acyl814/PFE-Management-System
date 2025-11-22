@@ -1,0 +1,271 @@
+
+.body-box2{
+  width: 55rem;
+  height: 45.2rem;
+  position: absolute;
+  left: 10rem;
+  top: 31.1rem;
+  overflow: hidden;
+  box-shadow: 1.9rem 1.8rem 3.08rem rgba(11, 88, 204, 0.5);
+  background-color: #e7e7e7;
+  border-radius: 3rem;
+}
+.login-Ftr .frame {
+  width: 45.5rem;
+  height: 40.6rem;
+  position: absolute;
+  left: 20.8rem;
+  top: 33.3rem;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+.bar {
+  margin: 0rem 12.6rem 6.7rem 0rem;
+  width: calc(100% - 12.6rem);
+  height: 4.1rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.signuplink {
+  text-decoration: none;
+}
+ .login-frame {
+  margin-right: 6.8rem;
+  width: 13.5rem;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  align-items: center;
+  flex-direction: column;
+  column-gap: 3rem;
+  display: flex;
+}
+.login {
+  width: 10.2rem;
+  height: 4.1rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.26;
+  text-transform: uppercase;
+  color: #1e4670;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.rectangle {
+  width: 13.5rem;
+  height: 0.3rem;
+  position: absolute;
+  top: 4rem;
+  left: 1.75rem;
+  background-color: #1e4670;
+}
+.signup-frame {
+  width: 13.5rem;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  align-items: center;
+  flex-direction: column;
+  column-gap: 3rem;
+  display: flex;
+}
+.rectangle1 {
+  width: 13.5rem;
+  height: 0.3rem;
+  position: absolute;
+  top: 4rem;
+  left: 0.4rem;
+  background-color: #c9c9c9;
+}
+.sign-up{
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.26;
+  text-transform: uppercase;
+  color: #c9c9c9;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  
+}
+.bar:hover .login{
+  color: #c9c9c9;
+}
+.bar:hover .sign-up{
+  color: #1e4670;
+}
+.bar:hover .rectangle{
+  background-color: #c9c9c9;
+}
+.bar:hover .rectangle1{
+  background-color: #1e4670;
+}
+.emailbox {
+  margin-bottom: 6.8rem;
+  margin-left: 1rem;
+  box-sizing: border-box;
+  padding: 0.467rem 0.508rem 0.467rem 0.508rem;
+  width: 50REM;
+  height: 5.6rem;
+  background-color:#ffffff;
+  flex-shrink: 0;
+  border-radius: 3em ;
+}
+.emailbox:hover{
+  box-shadow: 1.9rem 1.8rem 3.08rem rgba(11, 88, 204, 0.5);
+}
+
+.content {
+  width: 27.8917rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.ex-usthbmaildz {
+  margin-top: 0.1rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #777777;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none; 
+  outline: none; 
+  background: transparent; 
+  width: 120%;
+}
+
+.passcode {
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  padding: 0.4rem 0.6rem 0.7rem 0.6rem;
+  height: 5.6rem;
+  background-position: center;
+  background-color: #ffffff;
+  width: 50REM;
+  flex-shrink: 0;
+  border-radius: 3em;
+}
+
+.passcode:hover{
+  box-shadow: 1.9rem 1.8rem 3.08rem rgba(11, 88, 204, 0.5);
+}
+ .subtract {
+  margin-right: 3.7rem;
+  width: 5.1rem;
+  height: 4.5rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.password1 {
+  margin-top: 0.1rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #777777;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: none; 
+  outline: none; 
+  background: transparent; 
+  width: 120%;
+}
+
+.viewhidefill {
+  margin-bottom: 1.3rem;
+  left: 45rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.frame-11-6t6 {
+  flex-direction: row;
+  width:55rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+ .forget-your-password-rsG {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #1e4670;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.forget-your-password-rsG:hover{
+  color: #0d1426;
+}
+ .forget-your-password{
+  text-decoration: none;
+}
+
+.login-buton-Zmg {
+  right: 17rem;
+  bottom: 3rem;
+  width: 13.7rem;
+  height: 5rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #008d1f;
+  border-radius: 3rem;
+  flex-shrink: 0;
+  border: none;
+ 
+}
+.login-buton-Zmg:hover{
+  background-color:#005011 ;
+}
+.errorbox{
+ bottom: 35rem;
+ background-color: red;
+ position: relative;
+ text-align: center;
+ height: 3rem;
+ width: 50REM;
+ flex-shrink: 0;
+ border-radius: 3em;
+ box-sizing: border-box;
+ padding: 0.8rem 0.6rem 0.7rem 0.6rem;
+}
+.errorbox:hover{
+  box-shadow: 1rem 0.6rem 1.8rem rgba(245, 85, 85, 0.5);
+}
+.error{
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.26;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+  
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+{% load custom_filters %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{% static 'images/usthb.svg' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Add Summary</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/add-admin.css' %}"/>
+</head>
+<body>
+    {% include 'gestionpfe/sidebar.html' %}
+    <div class="admin">
+        <div class="navbar">
+            <div class="user1">
+                <p>Hello,</p>
+                {% for e in admin %}
+                    
+                        <a href="{% url 'teacher-update-teacher' e.id %}">
+                    
+                            <div class="name">
+                                <p class="bold">{{ e.get_name }}</p>
+                                <i class="bx bxs-cog"></i>
+                            </div>
+                        </a>
+                {% endfor %}
+            </div>
+            <div class="titlesite">
+                <img src="{% static 'images/usthb.svg' %}">
+                <span>End Of Studies Project Management</span>
+            </div>
+        </div>
+
+        <div class="topbar">
+            <div class="links">
+                <p>Assigned Subjects</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="title">
+                <h2>Add Session Summary</h2>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                {% if form.errors or form.non_field_errors %}
+                <div class="errorbox1">
+                    <div class="error1">
+                        {% for field in form %}
+                            {{ field.errors }}
+                        {% endfor %}
+                        {{ form.non_field_errors }}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="informations">
+                    <div class="content">
+                        
+                        <input type="text" readonly class="inputtxt" value="{{ choice.subject.title }}">
+                    </div>
+                    <div class="content">
+                        
+                        <input type="text" readonly class="inputtxt" value="{{ choice.student.get_name }}">
+                    </div>
+                    {% if choice.student.binome %}
+                        <div class="content">
+                            
+                            <input type="text" readonly class="inputtxt" value="{{ choice.student.binome.get_name }}">
+                        </div>
+                    {% endif %}
+                    <div class="content">
+                        {{ form.resume }}
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="buttonupdate">Submit</button>
+                        <a href="javascript:history.back()">Go Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

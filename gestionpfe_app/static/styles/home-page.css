@@ -1,0 +1,388 @@
+
+html {
+	font-size:62.5%;
+  width: 100%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+}
+.home-page-5R8 {
+  width: 100%;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #fffbe3;
+  z-index: 1;
+}
+.home-page-5R8 .auto-group-46fp-JYn {
+  box-sizing: border-box;
+  padding-bottom: 19.5rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx {
+  margin: 0rem 0rem 1.5rem 0rem;
+  width: calc(100% - 0.0001rem);
+  height: 63.1rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .heroimg {
+  width: 100%;
+  height: 75%; 
+  position: relative;
+  top: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .midelbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64.5rem;
+  height: 20.6rem;
+  position: absolute;
+  left: 44.5rem;
+  top: 40.5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1e4670;
+  box-shadow: 1.9rem 1.8rem 3.08rem rgba(11, 88, 204, 0.5);
+  border-radius: 3rem;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .midelbar  .midelbarinfo {
+  
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5rem;
+ 
+  
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .midelbar  .midelbarinfo .midelbarlink{
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .midelbar  .midelbarinfo .midelbarlogo{
+  
+  width: 7.5rem;
+  height: 7rem;
+  object-fit: cover;
+ 
+  border-radius: 2.1rem;
+  flex-shrink: 0;
+  align-items: flex-start;
+  
+}
+
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .midelbar  .midelbarinfo .midelbartxt{
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #777777;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space:nowrap;
+  flex-shrink: 0;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .nav-bar-WGn {
+  width: 108rem;
+  height: 13.05rem;
+  position: absolute;
+  left: 16rem;
+  top: 2.25rem;
+  display:flex ;
+  align-items: flex-start;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .nav-bar-WGn .logo-31p {
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  column-gap: 2rem;
+  display: flex;
+  
+
+}
+.logo {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  background-size: 100% 100%;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .nav-bar-WGn .frame-7-WRC {
+  margin-bottom: 10.95rem;
+  margin-left: 61rem;
+  display: flex;
+  column-gap: 3rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .nav-bar-WGn  .logotxt {
+  margin-left: 12rem;
+  font-size: 2rem;
+  font-weight: 700;
+  position: absolute;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  
+}
+.navbarlink{
+  text-decoration: none;
+  display: inline-block;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-sb8i-6sx .nav-bar-WGn .frame-7-WRC .navbartxt {
+  
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.26;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-vewj-DD8 {
+  margin: 0rem 31.05rem 0rem 16rem;
+  width: calc(100% - 47.05rem);
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-vewj-DD8 .body-img-YWJ {
+  margin: 0rem 5.3rem 0.5rem 0rem;
+  width: 51.7rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-vewj-DD8 .body-img-YWJ .img1-GhC {
+  margin-bottom: 1.6rem;
+  width: 51.7rem;
+  height: 37.4rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-46fp-JYn .auto-group-vewj-DD8 .body-img-YWJ .frame-1-1ug {
+  margin-right: 0rem;
+  width: calc(100% - 0rem);
+  height: 1.6rem;
+  overflow: hidden;
+  position: relative;
+  background-color: #1e4670;
+  flex-shrink: 0;
+}
+
+.frame-9-gkv {
+  margin-bottom: 2.9rem;
+  width: 100%;
+  height: 4.1rem;
+  display: flex;
+  align-items: center;
+}
+ .frame-9-gkv .ligne-frame-q82 {
+  margin: 0.3rem 1.65rem 0.1rem 0rem;
+  width: 0.8rem;
+  height: calc(100% - 0.4rem);
+  overflow: hidden;
+  position: relative;
+  background-color: #1e4670;
+  flex-shrink: 0;
+}
+ .frame-9-gkv .gestions-des-projets-Yo8 {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.26;
+  text-transform: uppercase;
+  color: #1e4670;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+ .resume {
+  margin-bottom: 4.7rem;
+  max-width: 39.6rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2666666031;
+  color: #777777;
+  font-family: Outfit, 'Source Sans Pro';
+}
+
+
+.login-buton-HZg {
+  width: 16.9rem;
+  height: 7.8rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #008d1f;
+  border-radius: 3rem;
+  
+  
+}
+.login-buton-HZg:hover{
+  background-color:#005011 ;
+}
+.home-page-5R8 .auto-group-ufaw-weE {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #0d1426;
+  flex-shrink: 0;
+}
+.home-page-5R8 .auto-group-ufaw-weE .copyright-U8N {
+  width: 7.1rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 64.15rem;
+  top: 11.6rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.26;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.home-page-5R8 .auto-group-ufaw-weE .line-1-yL2 {
+  width: 92.8rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 25.7rem;
+  top: 10.3rem;
+  background-color: #ffffff;
+}
+.home-page-5R8 .auto-group-ufaw-weE .social-icons-hG2 {
+  width: 4.704rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 35.5rem;
+  top: 2.5rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.home-page-5R8 .auto-group-ufaw-weE .social-icons-1nW {
+  width: 4.4rem;
+  height: 3.9772rem;
+  position: absolute;
+  left: 95.8rem;
+  top: 2.5808rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.home-page-5R8 .auto-group-ufaw-weE .social-icons-MLa {
+  width: 4.8rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 104.2rem;
+  top: 2.2rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.home-page-5R8 .auto-group-ufaw-weE .social-icons-cXQ {
+  width: 4.7972rem;
+  height: 4.7991rem;
+  position: absolute;
+  left: 113.7rem;
+  top: 2.2rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.home-page-5R8 .auto-group-ufaw-weE .usthbmaildz-ktW {
+  width: 15.3rem;
+  height: 3.1rem;
+  position: absolute;
+  left: 16rem;
+  top: 3.4rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.home-page-5R8 .auto-group-ufaw-weE .follow-us-Tnv {
+  width: 9.8rem;
+  height: 3.1rem;
+  position: absolute;
+  left: 82.25rem;
+  top: 2.8rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.26;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.homebuttonlink{
+  text-decoration: none;
+}
+.homebutton{
+  width: 16.9rem;
+  height: 5rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: Outfit, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e4670;
+  border-radius: 3rem;
+  
+
+}
+.homebutton:hover{
+  background-color: #0d1426;
+}

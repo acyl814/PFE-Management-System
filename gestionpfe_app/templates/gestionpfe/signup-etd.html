@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Signup</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+    <link rel="stylesheet" href="{% static 'styles/signup.css'%}"/>
+</head>
+<body>
+    
+    <div class="signup">
+        
+        <div class="top">
+            <div class="logo">
+                <img class="logo" src="{%static 'images/usthb.svg'%}"/>
+                <span> University of Science <br>
+                    and Technology <br>
+                     Houari Boumediene.</span>
+
+            </div>
+            <div class="links">
+                <span> <a href="{% url '' %}">HOME</a></span>
+                <span> <a href="{% url 'login_choose' %}">LOGIN</a></span>
+                <span> <a href="{% url 'contact' %}">CONTACT US</a></span>
+                <span> <a href="{% url 'about' %}">ABOUT US</a></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="img">
+                <img class="bodyimg-hgp" src="{% static 'images/bodyimg.png'%}"/>
+            </div>
+            <div class="bodydesign">
+                <img class="ellipse-1" src="{% static 'images/ellipse-1.png'%}"/>
+                <img class="ellipse-2" src="{% static 'images/ellipse-2.png'%}"/>
+                <img class="ellipse-3" src="{% static 'images/ellipse-3.png'%}"/>
+            </div>
+            <form method="POST">
+            {% csrf_token %} 
+            
+                <div class="signupbox">
+
+                    <div class="link">
+                        <div class="login">
+                            <span><a href="{% url 'login_admin' %}">LOGIN</a></span>
+                            <div class="rec1"></div>
+
+                        </div>
+                        <div class="signup">
+                            <span class="link_signup">SIGN UP</span>
+                            <div class="rec2"></div>
+
+                        </div>
+                    </div>
+                    {% if form.errors or form.non_field_erors %}
+                    <div class="errorbox">
+                    <div class="error">
+                        {% for field in form %}
+                        {{field.errors}}
+                        {% endfor %}
+                        {{form.non_field_errors}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    <div class="input">
+                      <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                      {{studentForm.matricule}}
+
+                    </div>
+                    <div class="input">
+                      <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                      {{studentForm.level}}
+
+                    </div>
+                    <div class="input">
+                      <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                      {{studentForm.speciality}}
+
+                    </div>
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                        {{form.username}}
+
+                    </div>
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                        {{form.first_name}}
+
+                    </div>
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/persson.png'%}"/>
+                        {{form.last_name}}
+
+                    </div>
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/email.svg'%}"/>
+                        {{form.email}}
+
+                    </div>
+                    
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/key.svg'%}"/>
+                        {{form.password1}}
+
+                    </div>
+                    <div class="input">
+                        <img class="subtract" src="{% static 'images/key.svg'%}"/>
+                        {{form.password2}}
+
+                    </div>
+                    
+                    <div class="eye">
+                        <img class="viewhidefill" src="{% static 'images/openeye.svg'%}" id="togglePassword"/>
+                    </div>
+                    <div class="buttons">
+                        <div class="signup">
+                            <button type="submit" class="signup_bt">sign up</button>
+                        </div>
+                        <div class="haveacc">
+                            <a href="{% url 'login_choose' %}" class="haveacclink">
+                                do you have an account?
+                               </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        
+        
+        
+    </div>
+    <div class="bottom">
+        <div class="links">
+            <div class="sec1">
+                <p>contact@usthb.dz</p>
+            </div>
+
+            <div class="sec2">
+                <p >follow us</p>
+                <a href="https://twitter.com/cabinet_usthb" target="_blank"><img  src="{% static 'images/twitter.png'%}"/></a>
+                <a href="https://www.linkedin.com/school/universit%C3%A9-des-sciences-et-de-la-technologie-'houari-boumedi%C3%A8ne'/" target="_blank"><img  src="{% static 'images/linkedin.png'%}"/></a>
+                <a href="https://www.facebook.com/cabinetdurecteur" target="_blank"><img  src="{% static 'images/facebook.png'%}"/></a>
+            </div>
+            
+            
+            
+
+        </div>
+        <div class="line">
+        </div>
+        <div class="copy">
+            <span>© 2024 - copyright</span>
+
+        </div>
+    </div>
+    
+ 
+    <script>
+        // Sélectionner l'élément de l'icône et du champ mot de passe
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        const password1 = document.getElementById('password1');
+        
+        togglePassword.addEventListener('click', function () {
+            // Vérifie si le champ de mot de passe est de type 'password' pour le changer en 'text'
+            const type = password.type === 'password' ? 'text' : 'password';
+            password.type = type;
+      
+            const type1 = password1.type === 'password' ? 'text' : 'password';
+            password1.type = type1;
+            
+            // Change l'icône en fonction de l'état (ouvert ou fermé)
+            this.src = password.type === 'password' ? "{% static 'images/openeye.svg'%}" : "{% static 'images/viewhidefill-3Qr.svg'%}";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+.update{
+    left: 8%;
+    position: relative;
+    background-color: #fff9d8;
+    height: 97VH;
+    top: 1rem;
+    transition: all 0.5s ease;
+    width: calc(100% - 8%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+    overflow-y: hidden;
+    
+    align-items: center;
+    
+}
+.sidebar.active ~ .update{
+    left: 20%;
+    width: calc(100% - 20%);
+}
+
+.title{
+    position: relative;
+    text-align: center;
+    color: rgb(80, 66, 29);
+    font-weight: 700;
+    font-size: 200%;
+    background-color: rgb(255, 227, 167);
+    box-shadow: 0rem 0.5rem 0.8rem rgb(80, 66, 29);
+    border-radius: 1.5rem;
+    padding: 1%  1%;
+    white-space: nowrap;
+    width: 30%;
+    align-self: center;
+    font-family: Outfit, 'Source Sans Pro';
+}
+
+.informations{
+    display: flex;
+    align-items: center;
+    width: 50rem;
+    box-shadow: 0rem 0.5rem 0.8rem rgb(80, 66, 29);
+    border-radius: 3rem;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    row-gap: 2rem;
+    flex-direction: column;
+    overflow-y: hidden;
+
+}
+.buttonupdate{
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    border-radius: 3rem;
+    font-size: 100%;
+    font-family: Outfit, 'Source Sans Pro';
+    align-items: center;
+    border: none;
+    background-color: #008d1f;
+    color: #FFFFFF;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    position: relative;
+
+}
+.buttonupdate:hover{
+    background-color:#005011 ;
+    box-shadow: 0.5rem 0.5rem 1rem rgb(80, 66, 29);
+  }
+.content{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3rem;
+    padding: 1% 0% 1% 3%;
+    background-color:rgb(248, 235, 197);
+    font-family: Outfit, 'Source Sans Pro';
+    cursor:default;
+    width: 90%;
+    color: rgb(80, 66, 29);
+}
+.content:hover{
+    box-shadow: 1rem 1.5rem 1.8rem rgb(80, 66, 29);
+    background-color: rgb(255, 227, 167);
+    padding: 2% 1% 2% 4%;
+
+}
+.inputtxt {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.26;
+    color: rgb(80, 66, 29);
+    font-family: Outfit, 'Source Sans Pro';
+    white-space: nowrap;    
+    border: none; 
+    outline: none; 
+    background: transparent; 
+    width: 100%;
+    
+  }

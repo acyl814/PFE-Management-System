@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="{%static 'images/usthb.svg'%}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>LOGIN STUDENT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="{% static 'styles/contact.css'%}"/>
+  <link rel="stylesheet" href="{% static 'styles/login.css'%}"/>
+  
+  
+</head>
+<body>
+<div class="login-Ftr">
+  <img class="ellipse-1-aRL" src="{% static 'images/ellipse-1.png'%}"/>
+  <img class="ellipse-2-7RG" src="{% static 'images/ellipse-2.png'%}"/>
+  <img class="ellipse-3-SyL" src="{% static 'images/ellipse-3.png'%}"/>
+  <div class="nav-bar-Pdg">
+    <a href="/" class="navbarlink">
+      <div class="logo-jBk">
+        <img class="logo" src="{%static 'images/usthb.svg'%}"/>
+          <p class="logotxt"> University of Science <br>
+             and Technology <br>
+              Houari Boumediene. </p>  
+          
+      </div>
+    </a>
+   
+    <div class="frame-7-cmL">
+      <a href="/" class="navbarlink"> 
+        <div class="navbartxt">HOME</div>
+      </a>
+      <a href="/signup_choose" class="navbarlink"> 
+        <div class="navbartxt">SIGN UP</div>
+      </a>
+      <a href="/contact" class="navbarlink"> 
+        <div class="navbartxt">CONTACT US</div>
+      </a>
+      <a href="/about" class="navbarlink"> 
+        <div class="navbartxt">ABOUT US</div>
+      </a>
+    </div>
+   
+  </div>
+  <div class="bottom-frame-Y2i">
+  </div>
+  <p class="copyright-GjQ">© 2024 - copyright</p>
+  <div class="line-1-yti">
+  </div>
+  
+  <a href="https://twitter.com/cabinet_usthb" target="_blank"><img class="social-icons-twitter" src="{% static 'images/twitter.png'%}"/></a>
+  <a href="https://www.linkedin.com/school/universit%C3%A9-des-sciences-et-de-la-technologie-'houari-boumedi%C3%A8ne'/" target="_blank"><img class="social-icons-linkedin" src="{% static 'images/linkedin.png'%}"/></a>
+  <a href="https://www.facebook.com/cabinetdurecteur" target="_blank"><img class="social-icons-facebook" src="{% static 'images/facebook.png'%}"/></a>
+  <p class="usthbmaildz-f2n">contact@usthb.dz</p>
+  <p class="follow-us-xGn">follow us </p>
+
+  <img class="body-img" src="{% static 'images/img-2a2.png' %}"/>
+  <div class="body-box2">
+  </div>
+
+  <div class="frame">
+    <form method="POST">
+      {% csrf_token %}
+      
+      <div class="bar">
+      
+        <div class="login-frame">
+          <p class="login">login</p>
+          <div class="rectangle">
+          </div> 
+        </div>
+        <div class="signup-frame">
+          <a href="/signup_student" class="signuplink">
+            <p class="sign-up">sign up</p>
+          </a>
+          <div class="rectangle1">
+          </div>
+        </div>
+      </div>
+      <div class="emailbox">
+        <div class="content">
+         
+         
+          <img class="subtract" src="{% static 'images/persson.png'%}"/>
+          
+          {{form.username}}
+          
+        </div>
+      </div>
+      <div class="passcode">
+        <div class="content">
+          
+          <img class="subtract" src="{% static 'images/key.svg'%}"/>
+          
+          {{form.password}}
+        </div>
+      </div>
+      <img class="viewhidefill" src="{% static 'images/openeye.svg'%}" id="togglePassword"/>
+      <div class="frame-11-6t6">
+        <a href="/forget_password" class="forget-your-password">
+        <p class="forget-your-password-rsG">Forget your password?</p>
+        </a>
+        <button type="submit" class="login-buton-Zmg">login</button>
+     </div>
+     {% if form.errors or form.non_field_errors %}
+         <div class="errorbox">
+            <div class="error">
+              {% for field in form %}
+                {{field.errors}}
+              {% endfor %}
+              {{form.non_field_errors}}
+            </div>
+         </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+<script>
+  // Sélectionner l'élément de l'icône et du champ mot de passe
+  const togglePassword = document.getElementById('togglePassword');
+  const password = document.getElementById('password');
+  
+  togglePassword.addEventListener('click', function () {
+      // Vérifie si le champ de mot de passe est de type 'password' pour le changer en 'text'
+      const type = password.type === 'password' ? 'text' : 'password';
+      password.type = type;
+      
+      // Change l'icône en fonction de l'état (ouvert ou fermé)
+      this.src = password.type === 'password' ? "{% static 'images/openeye.svg'%}" : "{% static 'images/viewhidefill-3Qr.svg'%}";
+  });
+</script>
+</body>
+</html>
